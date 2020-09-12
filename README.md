@@ -8,4 +8,4 @@
 * http://stage4.cyberthon.ctf.msk.ru/chall
 * http://stage5.cyberthon.ctf.msk.ru/chall
 * http://stage6.cyberthon.ctf.msk.ru/chall
-* http://stage7.cyberthon.ctf.msk.ru/chall
+* https://final20192020.cyberthon.ctf.msk.ru/chall
