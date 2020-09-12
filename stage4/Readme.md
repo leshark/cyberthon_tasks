@@ -11,6 +11,10 @@
 
 * za_pazwardo_requiem
 * captcha_generator
+  
+### 3) stego
+
+* Well-known song
 
 ## Райтапы
 

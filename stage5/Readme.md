@@ -2,15 +2,11 @@
 
 ## Задачи
 
-### 1) stego
-
-* Well-known song
-
-### 2) misc
+### 1) misc
 
 * REgular_Task
 
-### 3) web
+### 2) web
 
 * Gimmie_Y0ur_t0ken
 
