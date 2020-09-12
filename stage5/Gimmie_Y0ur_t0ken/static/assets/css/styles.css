@@ -1,0 +1,234 @@
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.message {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.message:hover {
+    color: black;
+}
+
+.login-card {
+    max-width: 350px;
+    padding: 40px;
+    background-color: #F7F7F7;
+    margin: 50px auto 25px;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .3)
+}
+
+.login-card .profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    border-radius: 50%
+}
+
+
+.login-card .profile-name-card {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em
+}
+
+.login-card .reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box
+}
+
+.login-card .form-signin button, .login-card .form-signin input[type=email], .login-card .form-signin input[type=password], .login-card .form-signin input[type=text] {
+    height: 44px;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    box-sizing: border-box
+}
+
+.login-card label {
+    color: #000
+}
+
+.login-card .form-signin .form-control:focus {
+    border-color: #6891a2;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px #6891a2;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px #6891a2
+}
+
+.login-card .btn.btn-signin {
+    font-weight: 700;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    background: #6891a2;
+    border-radius: 3px;
+    border: none;
+    transition: all 218ms;
+    padding: 0
+}
+
+.login-card .btn.btn-signin:active, .login-card .btn.btn-signin:focus, .login-card .btn.btn-signin:hover {
+    background: #0c6121
+}
+
+
+.login-card .forgot-password {
+    color: #6891a2
+}
+
+
+input[type="file"] {
+    display: none;
+}
+
+#file-selected {
+    display: inline;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.login-card .forgot-password:active, .login-card .forgot-password:focus, .login-card .forgot-password:hover {
+    color: #0c6121
+}
+
+.register-form form.custom-form {
+    padding: 35px;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+    font: 700 14px sans-serif;
+    text-align: center;
+    margin: 50px;
+    color: #333
+}
+
+@media (max-width: 400px) {
+    .register-form form.custom-form {
+        padding: 55px 10px
+    }
+}
+
+.register-form .custom-form h1 {
+    display: inline-block;
+    color: #4c565e;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 0 10px 15px;
+    margin-bottom: 60px;
+    border-bottom: 2px solid #6caee0
+}
+
+h1 {
+    margin-bottom: 30px !important;
+}
+
+h4 {
+    margin-bottom: 30px !important;
+}
+
+.register-form .custom-form .form-group {
+    margin-bottom: 25px
+}
+
+.register-form .custom-form .label-column {
+    text-align: right;
+    color: #5F5F5F
+}
+
+@media (max-width: 768px) {
+    .register-form .custom-form .label-column {
+        text-align: left
+    }
+}
+
+.register-form .custom-form .input-column {
+    color: #5f5f5f;
+    text-align: left
+}
+
+.register-form .custom-form .input-column input {
+    color: #5f5f5f;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, .08);
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    height: 42px
+}
+
+.register-form .custom-form {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, .08);
+    color: #333;
+    outline: 0
+}
+
+.register-form .custom-form ul {
+    background: #fff
+}
+
+.register-form .custom-form ul li a {
+    background: #fff;
+    color: #333;
+    opacity: .8
+}
+
+.register-form .custom-form ul li a:hover {
+    opacity: 1
+}
+
+.register-form .custom-form .submit-button {
+    border-radius: 2px;
+    background: #6caee0;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, .08);
+    padding: 14px 22px;
+    border: 0;
+    margin: 30px;
+    outline: 0
+}
+
+.submit-button {
+   margin: 15px !important;
+}
+
+#send_reset {
+    margin-top: 20px;
+}
+
+#reset_password {
+    margin-top: 20px;
+}

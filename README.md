@@ -9,3 +9,6 @@
 * http://stage5.cyberthon.ctf.msk.ru/chall
 * http://stage6.cyberthon.ctf.msk.ru/chall
 * https://final20192020.cyberthon.ctf.msk.ru/chall
+
+Практически все задания в категории `web` могут быть залиты на [heroku](https://www.heroku.com/) в образовательных целях.
+> Не забудьте установить переменную окружения FLASK_SECRET где это необходимо 

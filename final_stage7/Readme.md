@@ -4,20 +4,20 @@
 
 ### 1) osint
 
-* April's joke
+* [April's joke](April's_joke)
 
 ### 2) ppc
 
-* Pocker time
+* [Pocker time](pocker_time)
 
 ### 3) forensics
 
-* Suspicious dump
+* [Suspicious dump](suspicious_dump)
 
 ### 4) web
 
-* Greetings bot
-* Text shortener
+* [Greetings bot](Greetings_bot)    `tag:` [sql injection](https://portswigger.net/web-security/sql-injection)
+* Text shortener - будет добавлен позже
 
 ## Райтапы
 

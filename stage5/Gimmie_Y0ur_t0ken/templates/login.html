@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>pet_project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/assets/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+<div class="login-card"><img class="profile-img-card" src="../static/assets/img/avatar_base.png" alt="logo">
+    <p class="profile-name-card"></p>
+    <form class="form-signin" method="post" action="login">
+        <input class="form-control" type="text" id="inputEmail" required name="login" placeholder="Username"
+               autofocus="">
+        <input class="form-control" type="password" id="inputPassword" required name="password" placeholder="Password">
+        <button id="sign_in" class="btn btn-primary btn-block btn-lg btn-signin" type="submit">Sign in</button>
+    </form>
+    <form class="form-register custom-form" method="get" action="register">
+        <button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">Register</button>
+    </form>
+    <br>
+    <a class="forgot-password" href="/reset">Forgot your password?</a>
+    {% if error %}
+        <div class="alert" id="err">
+            <span class="message" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Error: </strong> {{ error }}
+        </div>
+    {% endif %}
+</div>
+<script>
+    $('#err').delay(10000).fadeOut();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>za_pazwardo_requiem</title>
+    <style>
+
+        body {
+            background-image: url('static/symbols.jpg');
+        }
+
+        #center {
+            width: 250px;
+            height: 200px;
+
+            background-color: white;
+            border: 3px solid black;
+            border-radius: 5px;
+
+            padding-left: 10px;
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+
+            max-width: 100%;
+            max-height: 100%;
+            overflow: auto;
+        }
+    </style>
+    <script type="text/javascript">
+
+        async function ch_psw(e) {
+
+            e.preventDefault();
+
+            let change_passw = await
+                fetch('/change_passw', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify({"old_passw": document.getElementById('passw').innerText})
+                });
+
+            let new_passw = await change_passw.text();
+
+            let check = await
+                fetch('/check', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify({"new_passw": new_passw})
+                });
+
+            document.getElementById('passw').innerText = await check.text();
+            document.getElementById('inp').value = '';
+        }
+
+    </script>
+</head>
+<body>
+<form id="center" onsubmit="return ch_psw(event)">
+    Enter password to receive your flag:<br><br>
+    Password is: <p id="passw">{{ password }}</p> <!--(but it won't help you)-->
+    <input id="inp" type="text" name="password"><br><br>
+    <input type="submit" value="Submit">
+    <p id="result">{{ error }}</p>
+</form>
+</body>
+</html>

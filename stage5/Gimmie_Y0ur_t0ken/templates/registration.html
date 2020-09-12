@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>pet_project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/assets/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        function validatePassword() {
+
+            let password = document.getElementById("password");
+            let confirm_password = document.getElementById("confirm_password");
+
+            if (password.value !== confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+<div class="row register-form">
+    <div class="col-md-8 offset-md-2">
+        <form class="custom-form" method="post" action="register" enctype='multipart/form-data'>
+            <h1>Registration</h1>
+            {% if error %}
+                <div class="alert" id="err">
+                    <span class="message" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>Error: </strong> {{ error }}
+                </div>
+            {% endif %}
+            <p> Remember to confirm your email! </p>
+            <div class="form-row form-group">
+                <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Name </label>
+                </div>
+                <div class="col-sm-6 input-column"><input class="form-control" type="text" name="username" required>
+                </div>
+            </div>
+            <div class="form-row form-group">
+                <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Email </label>
+                </div>
+                <div class="col-sm-6 input-column"><input class="form-control" type="email" name="email" required></div>
+            </div>
+            <div class="form-row form-group">
+                <div class="col-sm-4 label-column"><label class="col-form-label"
+                                                          for="pawssword-input-field">Password </label></div>
+                <div class="col-sm-6 input-column"><input id="password" class="form-control" type="password"
+                                                          name="password"
+                                                          onchange="validatePassword()" required></div>
+            </div>
+            <div class="form-row form-group">
+                <div class="col-sm-4 label-column"><label class="col-form-label" for="confirm-pawssword-input-field">Repeat
+                    Password </label></div>
+                <div class="col-sm-6 input-column"><input id="confirm_password" class="form-control" type="password"
+                                                          name="confirm_password" onkeyup="validatePassword()"
+                                                          required>
+                </div>
+            </div>
+            <button class="btn btn-light submit-button" type="submit">Register</button>
+        </form>
+    </div>
+</div>
+<script>
+    $('#err').delay(10000).fadeOut();
+</script>
+</body>
+
+</html>
