@@ -17,7 +17,7 @@
 ### 4) web
 
 * [Greetings bot](Greetings_bot)    `tag:` [sql injection](https://portswigger.net/web-security/sql-injection)
-* Text shortener - будет добавлен позже
+* [Text shortener](https://github.com/leshark/xss-ctf-challenge)
 
 ## Райтапы
 
