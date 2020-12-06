@@ -1,0 +1,1 @@
+change ip_port in background.js for real ones. Then move out server.py and key.pem and generate crx in chrome. 

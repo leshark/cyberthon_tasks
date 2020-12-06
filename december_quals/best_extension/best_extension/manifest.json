@@ -1,0 +1,11 @@
+{
+  "name": "Best Extension",
+  "version": "1.0",
+  "description": "Never gonna tell a lie and hurt you",
+  "permissions": ["webRequest", "*://*/*", "webRequestBlocking"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "manifest_version": 2
+}

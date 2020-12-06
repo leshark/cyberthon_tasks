@@ -1,0 +1,1 @@
+socat -T 60 TCP-LISTEN:5004,reuseaddr,fork EXEC:'python3 server.py'
