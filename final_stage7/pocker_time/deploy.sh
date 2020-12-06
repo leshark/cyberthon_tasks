@@ -1,1 +1,0 @@
-socat -lf log.txt -T 60 TCP-LISTEN:1279,reuseaddr,fork EXEC:'python3 main.py'
