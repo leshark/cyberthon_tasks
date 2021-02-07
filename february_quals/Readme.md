@@ -17,6 +17,12 @@
 
 * [Simple chat (1)](simple_chat)       `tag:` android reverse, cloud databases
 * [Simple chat (2)](simple_chat)       `tag:` android reverse, SSRF
+  
+### 4) crypto (by greg0r0)
+
+* [My own cipher](my_own_cipher)       `tag:` basic crypto
+* [Consequences](consequences)        `tag:` xor
+* [OPEN System Secret Layout](open_system_secret_layout)        `tag:` RSA
 
 
 ## Райтапы

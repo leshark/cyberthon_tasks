@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anime advisor</title>
+    <style>
+        @font-face {
+            font-family: 'Anime_font';
+            src: url('/static/hangyaku-font/Hangyaku-x390R.ttf') format('truetype')
+        }
+
+        html, body {
+            font-family: 'Anime_font', Fallback, sans-serif;
+            font-size: x-large;
+            height: 100%;
+        }
+
+        h1, footer {
+            text-align: center;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        /* Style the links inside the navigation bar */
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        #next {
+            float: right;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .left_img {
+            display: flex;
+            margin-right: auto;
+        }
+
+        .right_img {
+            display: flex;
+            margin-left: auto;
+        }
+
+        #main_img {
+            padding-left: 1em;
+        }
+
+        #l_img {
+            margin-left: 6em;
+        }
+
+        @media screen and (max-width: 800px) {
+            img {
+                display: none;
+            }
+        }
+
+        img {
+            width: 200px;
+            height: 250px;
+        }
+
+        #r_img {
+            margin-right: 6em;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: flex-start;
+        }
+
+        span {
+            margin-bottom: 15px;
+        }
+
+        .submit_btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            border-radius: 12px;
+            font-family: 'Anime_font', Fallback, sans-serif;
+            font-size: x-large;
+        }
+
+        #submit_sugg_btn {
+            border-radius: 12px;
+            font-family: 'Anime_font', Fallback, sans-serif;
+            font-size: x-large;
+        }
+
+
+        .footer {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            margin-bottom: 30px;
+        }
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .sugg_div {
+            margin-bottom: 1em;
+        }
+
+        .formfield * {
+            vertical-align: middle;
+        }
+
+        .lab {
+            padding-right: 2em;
+        }
+
+        .captcha-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="/">Main page</a>
+    <a id="news" href="/api/news">News</a>
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal_text"></p>
+        </div>
+
+    </div>
+
+    <a onclick="alert('Coming soon!')" id="next" href="#">Sign In</a>
+</div>
+
+<h1>Anime advisor</h1>
+<div class="content">
+    {% if not anime_name %}
+    <div class="left_img">
+        <img id="l_img" src="static/anime_1.jpg">
+    </div>
+    <form method="post" action="get_anime">
+        <div class="buttons">
+            <span>
+                <input type="radio" id="option1" name="anime_type" value="fighting">
+                <label for="option1">Fighting anime</label>
+            </span>
+            <span>
+                <input type="radio" id="option2" name="anime_type" value="fantasy">
+                <label for="option2">Fantasy anime</label>
+            </span>
+            <span>
+                <input type="radio" id="option3" name="anime_type" value="cyberpunk">
+                <label for="option3">Cyberpunk anime</label>
+            </span>
+            <span>
+                <input type="radio" id="option4" name="anime_type" value="lucky" checked>
+                <label for="option4">I am feeling lucky</label>
+            </span>
+        </div>
+        <div class="submit_btn">
+            <button type="submit">Select anime</button>
+        </div>
+    </form>
+    <div class="right_img">
+        <img id="r_img" src="static/anime_2.jpg">
+    </div>
+    {% else %}
+    <p>Try out this anime: <br><br> <b>{{ anime_name }}</b></p>
+    <img id="main_img" src="{{img_path}}">
+    {% endif %}
+</div>
+<footer class="footer">We are working hard on improving the site. Please contact as
+    <a id="suggestion" href="/send_suggestion">here</a>
+    <div id="suggestion_modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+                <div class="sugg_div">
+                    <label class="lab" for="tittle"> Short suggestion tittle: </label>
+                    <input type="text" id="tittle" name="tittle">
+                </div>
+                <div class="sugg_div formfield">
+                    <label class="lab" for="description">Suggestion description: </label>
+                    <textarea id="description" name="description" rows="8" cols="50"></textarea>
+                </div>
+                <div class="sugg_div">
+                    <label class="lab" for="fileToUpload">Problem screenshot (if exists): </label>
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                </div>
+                <div class="captcha-box">
+                    <div class="g-recaptcha" style="padding: 20px"
+                         data-sitekey="{{ captcha_site_key }}"></div>
+                </div>
+                <div><input id="submit_sugg_btn" type="submit" value="Send suggestion" name="submit"></div>
+            </form>
+        </div>
+
+    </div>
+    if you have any suggestions!
+</footer>
+<script>
+    async function get_news(event) {
+        event.preventDefault();
+        modal.style.display = "block";
+        let news = await fetch('/api/news');
+        let news_json = await news.json();
+        let news_html = "";
+        for (const entry of news_json) {
+            Object.entries(entry).forEach(([key, value]) => {
+                news_html += key + ":<br><br>" + value + "<br><br>"
+            });
+        }
+        modal_text.innerHTML = news_html;
+    }
+
+    async function activate_suggestion(event) {
+        event.preventDefault();
+        modal_suggest.style.display = "block";
+    }
+
+    async function send_suggestion(event) {
+        event.preventDefault();
+        let data = new FormData();
+        data.append('tittle', document.getElementById('tittle').value);
+        data.append('description', document.getElementById('description').value);
+
+        let file_doc = document.getElementById('fileToUpload').files[0]
+
+        if (typeof file_doc != "undefined") {
+            data.append('file', document.getElementById('fileToUpload').files[0]);
+        }
+
+        data.append('g-recaptcha-response', grecaptcha.getResponse());
+        let response = await fetch('/send_suggestion', {
+            method:"POST",
+            body: data
+        });
+        let resp_text = await response.text();
+        alert(resp_text);
+        modal_suggest.style.display = "none";
+    }
+
+    let news = document.getElementById('news');
+    let span = document.getElementsByClassName("close")[0];
+    let modal = document.getElementById("myModal");
+    let modal_text = document.getElementById("modal_text");
+
+    let suggestion = document.getElementById('suggestion');
+    let span_2 = document.getElementsByClassName("close")[1];
+    let modal_suggest = document.getElementById("suggestion_modal");
+
+    let send_suggestion_btn = document.getElementById("submit_sugg_btn");
+
+    news.addEventListener('click', get_news, false);
+
+    suggestion.addEventListener('click', activate_suggestion, false);
+
+    send_suggestion_btn.addEventListener('click', send_suggestion, false);
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    span_2.onclick = function () {
+        modal_suggest.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        } else if (event.target === modal_suggest) {
+            modal_suggest.style.display = "none";
+        }
+    }
+
+</script>
+</body>
+</html>
